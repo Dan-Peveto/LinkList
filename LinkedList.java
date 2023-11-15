@@ -1,19 +1,23 @@
 public class LinkedList {
     //data 
     Node head;
-
+    Node tail;
     // actions - methods
     //AddFirst
-    public void AddFirst(int someValue) {
+    public void AddFirst(int someValue) { // O(1)
         // create new node
         Node newNode = new Node(someValue);
+        // if empty
+        if(IsEmpty()) {
+            head = tail = newNode;
+        }
         // link node to head
         newNode.next = head;
         // new node becomeshead
         head = newNode;
     }
     //Print - traversal
-    public void Print() {
+    public void Print() { // O(n)
         if(IsEmpty()) {
             System.out.println("List is empty");
         } else {
@@ -27,32 +31,51 @@ public class LinkedList {
         }
     }
     //AddLast
-    public void AddLast(int someValue) {
+    public void AddLast(int someValue) { // O(1)
         if(IsEmpty()) {
             AddFirst(someValue);
         } else {
         // create a new node
         Node newNode = new Node(someValue);
-        // Find last node
-        Node finger = head;
-        while(finger.next != null) {
-            finger = finger.next;
-        }
-        // Add newNode after last node
-        finger.next = newNode;
+        // newNode tail 
+        tail.next = newNode;
+        tail = newNode;
         }
     }
     //IsEmpty
-    public boolean IsEmpty(){
+    public boolean IsEmpty(){ // O(1)
         return head==null;
     }
-    //deletes First
+    //deletes First //O(1)
     public void DeleteFirst() throws Exception {
         if(IsEmpty()) {
             throw new Exception("You cannot delete from empty list");
-        }
+        } else if(head.next == null) {
+            head = tail = null;
+        } else { //there are at least two nodes
         head = head.next;
+        }
     }
-    //
-    //init
+    // Delete Last //O(n)
+    public void DeleteLast() throws Exception { //O(n)
+        if(IsEmpty()) {
+            throw new Exception("You cannot delete from empty list");
+        } else if (head.next == null) {
+        // if size is 1
+            DeleteFirst();
+        } else {
+        // find the next to last node
+        Node finger = head;
+        while(finger.next.next != null) {
+            finger = finger.next;
+            }
+            // move finger.next
+            finger.next = null;
+            // move tail 
+            tail = finger;
+        }
+    }
+    public void Clear() { //O(1)
+        head = tail = null;
+    }
 }
