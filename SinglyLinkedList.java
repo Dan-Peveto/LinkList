@@ -37,6 +37,7 @@ public class SinglyLinkedList {
         list.Print();
         */
 
+        /* 
         MyStack stack = new MyStack();
         stack.Push(10);
         stack.Push(20);
@@ -48,5 +49,17 @@ public class SinglyLinkedList {
         stack.Push(40);
         System.out.println(stack.Peek()); // 40
         stack.Print();
+        */
+
+        MyQueue q = new MyQueue();
+        q.Enqueue(10);
+        q.Enqueue(20);
+        q.Enqueue(30);
+        System.out.println(q.Peek()); //10
+        System.out.println(q.Peek()); //10
+        q.Dequeue();
+        System.out.println(q.Peek()); //20
+        q.Print();
+
     }   
 }
