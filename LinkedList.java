@@ -10,11 +10,12 @@ public class LinkedList {
         // if empty
         if(IsEmpty()) {
             head = tail = newNode;
-        }
+        } else {
         // link node to head
         newNode.next = head;
         // new node becomeshead
         head = newNode;
+        }
     }
     //Print - traversal
     public void Print() { // O(n)

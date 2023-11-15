@@ -16,6 +16,7 @@ public class SinglyLinkedList {
         System.out.println("Node 3 value from node 1: " + n1.next.next.value);
          */
 
+            /* 
         LinkedList list = new LinkedList();
         list.AddFirst(10);
         list.AddFirst(20);
@@ -34,5 +35,18 @@ public class SinglyLinkedList {
         emptyList.Print();
         list.DeleteFirst();
         list.Print();
+        */
+
+        MyStack stack = new MyStack();
+        stack.Push(10);
+        stack.Push(20);
+        stack.Push(30);
+        System.out.println(stack.Peek());//30
+        System.out.println(stack.Peek());//30
+        stack.Pop();
+        System.out.println(stack.Peek()); //20         
+        stack.Push(40);
+        System.out.println(stack.Peek()); // 40
+        stack.Print();
     }   
 }
